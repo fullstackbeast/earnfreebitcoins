@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="page-wrapper container">
+        <div class="row">
+            <div class="col s12">
+
+                <% if (typeof msg != 'undefined') { %>
+                <div class=" <%= color %> white-text notifications center-align flow-text">
+                    <%= msg %>
+                </div>
+                <% } %>
+            </div>
+            <div class="col row s11 white form-container center-align depth-5">
+                <h4 class="center-align">REGISTER</h4>
+                <form class="col s12" action="/register" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">email</i>
+                            <input id="email_prefix" name="email" type="email" class="validate" required>
+                            <label for="email_prefix">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="name_prefix" name="fullname" type="text" class="validate" required>
+                            <label for="name_prefix">Full Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">grid_on</i>
+                            <input type="text" name="birthdate" class="datepicker" id="birth_prefix" required>
+                            <label for="birth_prefix">Date of Birth</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">phone</i>
+                            <input name="phonenumber" id="phone_prefix" type="text" class="validate" required>
+                            <label for="phone_prefix">Phone Number</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix select-prefix">phone</i>
+                            <select name="gender" required>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <label>Gender</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">vpn_key</i>
+                            <input name="password" id="password" type="password" class="validate" required>
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">vpn_key</i>
+                            <input name="confirmpass" id="confirmpassword" type="password" class="validate" required>
+                            <label for="confirmpassword">Confirm Password</label>
+                        </div>
+                    </div>
+                    <div class=" col s12 red container verify-notice">
+                        <p><i>
+                                To help us keep the platform secure, we need to verify your identity. Upload a valid
+                                means of identification like a government issued International passport, Drivers
+                                licence, National ID Card
+                            </i></p>
+                    </div>
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>CHOOSE A FILE</span>
+                            <input type="file" name="verifydocument" required>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+
+                    <button class="btn waves-effect waves-light" type="submit" id="submit-btn" disabled>
+                        REGISTER
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/materialize.min.js"></script>
+    <script src="js/materializeinit.js"></script>
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>
